@@ -1,0 +1,15 @@
+[tool.ruff]
+target-version = "py311"
+line-length = 90
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "C4", "SIM"]
+ignore = [
+    "BLE001",   # broad except: intentional at boundary/IO layers
+    "S110",     # try-except-pass: intentional in JSON fallback parser
+    "S101",     # assert usage
+    "E501",     # line length handled by formatter
+]
+
+[tool.ruff.lint.per-file-ignores]
+"app/streamlit_app.py" = ["E402"]  # sys.path manipulation before imports
